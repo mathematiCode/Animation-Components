@@ -26,9 +26,9 @@ export default {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    size: {
+    duration: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['1000', '2000', '4000'],
     },
     isLiked: {
       control: { type: 'boolean' },
@@ -44,7 +44,17 @@ export default {
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default = {
   args: {
-    size: 'medium',
     isLiked: false,
+  },
+};
+
+export const PinkParticles = {
+  args: {
+    isLiked: false,
+    heartColor: 'rgb(255, 49, 186)',
+    hueMin: 315,
+    hueMax: 360,
+    saturation: 80,
+    luminence: 60,
   },
 };
