@@ -31,7 +31,7 @@ export const LikeButton = ({
     if (!buttonRef.current) return;
 
     // First wave of particles
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < numParticles; i++) {
       createParticle();
     }
 

@@ -29,11 +29,16 @@
   transition: background-color 0.2s ease;
 }
 
+.like-button path {
+  stroke: var(--red, #ff6b6b);
+}
+
 .like-button:hover {
   background: hsl(0deg 0% 100% / 0.1);
 }
 
 .like-button:hover path {
+  fill: var(--red, #f7a1a1);
   stroke: var(--red, #ff6b6b);
 }
 
