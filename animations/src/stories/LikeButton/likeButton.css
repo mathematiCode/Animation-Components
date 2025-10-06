@@ -1,11 +1,17 @@
-@keyframes explode {
+@keyframes fade-out {
   from {
     opacity: 1;
-    top: 43%;
-    left: 43%;
   }
   to {
     opacity: 0;
+  }
+}
+
+@keyframes from-center {
+  from {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -15,7 +21,8 @@
   height: 12px;
   border-radius: 50%;
   background: hsl(30, 90%, 80%);
-  animation: explode forwards; /* duration set in component */
+  animation: from-center forwards var(--disperse-duration),
+    fade-out forwards var(--fade-duration);
   pointer-events: none;
 }
 
@@ -29,22 +36,22 @@
   transition: background-color 0.2s ease;
 }
 
-/* .like-button path {
-  stroke: var(--red, #ff6b6b);
-} */
-
-.like-button:hover {
-  background: hsl(0deg 0% 100% / 0.1);
+.like-button path {
+  stroke: var(--heart-color, hsl(0 100% 71%));
+  transition: all 0.3s ease;
+  stroke-width: 2;
+  fill: none;
 }
 
 .like-button:hover path {
-  fill: var(--red, #f7a1a1);
-  stroke: var(--red, #ff6b6b);
+  fill: var(--heart-color-light, #f7a1a1);
+  stroke: var(--heart-color, hsl(0 100% 71%));
+  stroke-width: 2.5;
 }
 
 .like-button.liked path {
-  fill: var(--red, #ff6b6b);
-  stroke: var(--red, #ff6b6b);
+  fill: var(--heart-color, hsl(0 100% 71%));
+  stroke: var(--heart-color, hsl(0 100% 71%));
 }
 
 .like-button svg {

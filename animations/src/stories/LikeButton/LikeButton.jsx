@@ -1,16 +1,20 @@
 import React, { useState, useRef } from 'react';
 import { random } from 'lodash';
 import PropTypes from 'prop-types';
+import { lightenColor } from '../../utils/colorUtils';
 import './likeButton.css';
 
 /**
  * LikeButton component with particle animation effects
  */
+
 export const LikeButton = ({
   onLike = () => {},
   onUnlike = () => {},
   isLiked = false,
-  duration = 1000,
+  numParticles = 30,
+  fadeDuration = 2000,
+  disperseDuration = 1000,
   heartColor = '#ff6b6b',
   hueMin = 0,
   hueMax = 360,
@@ -27,7 +31,7 @@ export const LikeButton = ({
 
     if (newLikedState) {
       onLike();
-      explodeParticles(35);
+      explodeParticles(numParticles);
     } else {
       onUnlike();
     }
@@ -36,14 +40,12 @@ export const LikeButton = ({
   const explodeParticles = numParticles => {
     if (!buttonRef.current) return;
 
-    // First wave of particles
     for (let i = 0; i < numParticles; i++) {
       createParticle();
     }
 
-    // Second wave of particles after delay
     setTimeout(() => {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < numParticles; i++) {
         createParticle();
       }
     }, 200);
@@ -60,7 +62,8 @@ export const LikeButton = ({
     const left = Math.random() * 94;
     particle.style.top = `${top}%`;
     particle.style.left = `${left}%`;
-    particle.style.animationDuration = duration + 'ms';
+    particle.style.setProperty('--fade-duration', fadeDuration + 'ms');
+    particle.style.setProperty('--disperse-duration', disperseDuration + 'ms');
 
     // Random color
     const hue = random(hueMin, hueMax);
@@ -73,7 +76,7 @@ export const LikeButton = ({
       if (particle.parentNode) {
         particle.parentNode.removeChild(particle);
       }
-    }, duration);
+    }, fadeDuration);
   };
 
   return (
@@ -82,6 +85,10 @@ export const LikeButton = ({
       className={`like-button ${liked ? 'liked' : ''}`}
       onClick={handleClick}
       aria-label={liked ? 'Unlike this post' : 'Like this post'}
+      style={{
+        '--heart-color': heartColor,
+        '--heart-color-light': lightenColor(heartColor, 0.3),
+      }}
       {...props}
     >
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">

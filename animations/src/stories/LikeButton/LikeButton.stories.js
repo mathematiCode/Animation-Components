@@ -26,12 +26,33 @@ export default {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    duration: {
-      control: { type: 'select' },
-      options: ['1000', '2000', '4000'],
-    },
     isLiked: {
       control: { type: 'boolean' },
+    },
+    numParticles: {
+      control: { type: 'number' },
+    },
+    fadeDuration: {
+      control: { type: 'range', default: 1000, max: 5000 },
+    },
+    disperseDuration: {
+      control: { type: 'range', max: 5000 },
+      value: { defaultValue: 1000 },
+    },
+    heartColor: {
+      control: { type: 'color' },
+    },
+    hueMin: {
+      control: { type: 'range', min: 0, max: 360 },
+    },
+    hueMax: {
+      control: { type: 'range', min: 0, max: 360 },
+    },
+    saturation: {
+      control: { type: 'range', min: 0, max: 100 },
+    },
+    luminence: {
+      control: { type: 'range', min: 0, max: 100 },
     },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
@@ -45,6 +66,7 @@ export default {
 export const Default = {
   args: {
     isLiked: false,
+    //  heartColor: 'hsl(0 100% 71%)', // for some reason it's invisible unless I set the color here or use a hex color. But it works perfectly fine in the actual app.
   },
 };
 
@@ -52,8 +74,8 @@ export const PinkParticles = {
   args: {
     isLiked: false,
     heartColor: 'rgb(255, 49, 186)',
-    hueMin: 315,
-    hueMax: 360,
+    hueMin: 310,
+    hueMax: 345,
     saturation: 80,
     luminence: 60,
   },
