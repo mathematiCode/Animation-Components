@@ -1,10 +1,10 @@
 import { fn } from 'storybook/test';
-import { LikeButton } from './LikeButton';
+import { UnlikeButton } from './UnlikeButton';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
-  title: 'Example/LikeButton',
-  component: LikeButton,
+  title: 'Example/UnlikeButton',
+  component: UnlikeButton,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',

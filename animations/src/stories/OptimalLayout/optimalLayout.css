@@ -1,0 +1,15 @@
+.container {
+  background-color: rgb(155, 189, 178);
+  display: grid;
+}
+
+.container > * {
+  width: var(--size);
+  height: var(--size);
+}
+
+.circle {
+  background-color: black;
+  border-radius: 100%;
+  aspect-ratio: 1;
+}

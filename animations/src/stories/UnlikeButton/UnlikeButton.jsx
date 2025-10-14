@@ -2,14 +2,16 @@ import React, { useState, useRef } from 'react';
 import { random } from 'lodash';
 import PropTypes from 'prop-types';
 import { lightenColor } from '../../utils/colorUtils';
-import './likeButton.css';
+import './UnlikeButton.css';
 
-export const LikeButton = ({
+/**
+ * UnlikeButton component with particle animation effects
+ */
+
+export const UnlikeButton = ({
   onLike = () => {},
   onUnlike = () => {},
   isLiked = false,
-  size = 5,
-  fillContainer = true,
   numParticles = 30,
   fadeDuration = 2000,
   disperseDuration = 1000,
@@ -93,8 +95,8 @@ export const LikeButton = ({
         viewBox="0 0 24 24"
         fill="none"
         aria-hidden="true"
-        width={size}
-        height={size}
+        width="50"
+        height="50"
       >
         <path
           d="M3.68546 5.43796C8.61936 1.29159 11.8685 7.4309 12.0406 7.4309C12.2126 7.43091 15.4617 1.29159 20.3956 5.43796C26.8941 10.8991 13.5 21.8215 12.0406 21.8215C10.5811 21.8215 -2.81297 10.8991 3.68546 5.43796Z"
@@ -103,11 +105,14 @@ export const LikeButton = ({
           strokeLinecap="round"
         />
       </svg>
+      <span className="visually-hidden">
+        {liked ? 'Unlike this post' : 'Like this post'}
+      </span>
     </button>
   );
 };
 
-LikeButton.propTypes = {
+UnlikeButton.propTypes = {
   /** Callback fired when the button is liked */
   onLike: PropTypes.func,
   /** Callback fired when the button is unliked */
