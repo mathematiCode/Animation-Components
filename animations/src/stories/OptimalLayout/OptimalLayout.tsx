@@ -18,7 +18,13 @@ export const OptimalLayout = ({
     height,
     numItems
   );
+
   const itemSize: number = size - Math.max(horizontalSpacing, verticalSpacing);
+  if (itemSize < 6) {
+    console.warn(
+      'Your items are scaling to less than 6 pixels with the current dimensions and spacing. Consider choosing larger dimensions, fewer items, or less spacing.'
+    );
+  }
   return (
     <div
       className="container"

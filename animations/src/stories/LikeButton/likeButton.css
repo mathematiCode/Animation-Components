@@ -34,6 +34,8 @@
   border-radius: 50%;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
 }
 
 .like-button path {

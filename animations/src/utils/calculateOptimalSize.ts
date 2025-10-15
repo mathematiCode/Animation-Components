@@ -1,10 +1,10 @@
 interface OptimalDimensions {
-  size: Number;
-  itemsPerRow: Number;
-  numRows: Number;
+  size: number;
+  itemsPerRow: number;
+  numRows: number;
 }
 
-// Given a width and height of a container and a number of roughly-square items to fit inside of the container, this function returns the optimal size of each item so that they will all fit and use as much of the available space as possible.
+// Given a width and height of a container and a number of square items to fit inside of the container, this function returns the optimal size the items so that they will all fit and use as much of the available space as possible.
 export function calculateOptimalSize(
   width: number,
   height: number,
@@ -20,7 +20,9 @@ export function calculateOptimalSize(
    * Since we actually only need 100 items in a 900 by 300 pixel container, we can calculate the number of rows needed with 100 / 17.
    * This results in 5.88 which really means we need 6 rows but the last row will not be filled, which is why I used Math.ceil().
    *
-   * Since our container has an aspect ratio of 900:300, simplified 3:1, the ratio of itemsPerRow : numRows should be as close as possible to this ratio, but the function will prioritize making sure all items fully fit inside.
+   * Our container has an aspect ratio of 900:300, which simplifies to 3:1. The ratio of itemsPerRow : numRows should be as close as possible to this ratio, but the function will prioritize making sure all items fully fit inside over perfecting the ratio.
+   *
+   * Also if there is a row with only 3 items in the last row and the last column only has 2 items, it will take the items from the last column and move them to fill in the empty space in the last row.
    *
    * If you want the items to be spaced out, multiply the width and height parameters by a scale factor less than one before passing them in.
    * TODO: Add spacing parameter(s)
@@ -47,21 +49,22 @@ export function calculateOptimalSize(
 
   const shouldMakeOneMoreColumn =
     canSquishMoreHorizontally && lessThanHalfIsFilled;
-  if (shouldMakeOneMoreColumn) {
-    itemsPerRow++; // We're gonna add a column, which means moar itemz
-    numRows--; // Kill last row, we shoved it into the last column
-  }
 
-  // if I have enough space to shove the last column into the available space in the last row, this does that. This allows them to spread out more and utilize empty space.
-  else if (lastColumnCanFitInLastRow) {
-    itemsPerRow--; // numRows... won't get bigger, we just make the items per row smaller and hope for the best
+  if (shouldMakeOneMoreColumn) {
+    itemsPerRow++; // We're gonna add a column, which means more items
+    numRows--; // Kill last row, we shoved it into a new last column
+  } else if (lastColumnCanFitInLastRow) {
+    // if I have enough space to shove the last column into the available space in the last row, this does that. This allows them to spread out more and utilize empty space.
+    itemsPerRow--; // numRows... won't get bigger, we just make the items per row smaller
   }
 
   // Now we math.
 
   // Container width divided by how many we think we're gonna draw
   // But like, not vertically overflowing the height.
-  const itemSize: number = Math.min(width / itemsPerRow, height / numRows);
+  const itemSize: number = Math.floor(
+    Math.min(width / itemsPerRow, height / numRows)
+  );
 
   return {
     size: itemSize,

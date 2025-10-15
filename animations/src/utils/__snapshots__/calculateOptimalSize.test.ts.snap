@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`calculates optimal sizes > calculates dimensions for 1:2 aspect ratio { width: 20, height: 40, items: 50 } container 1`] = `
+{
+  "actualSize": 4,
+  "itemsPerRow": 5,
+  "numRows": 10,
+}
+`;
+
+exports[`calculates optimal sizes > calculates dimensions for long rectangle { width: 900, height: 100, items: 75 } container 1`] = `
+{
+  "actualSize": 33,
+  "itemsPerRow": 25,
+  "numRows": 3,
+}
+`;
+
+exports[`calculates optimal sizes > calculates dimensions for square { width: 300, height: 300, items: 10 } container 1`] = `
+{
+  "actualSize": 75,
+  "itemsPerRow": 4,
+  "numRows": 3,
+}
+`;
+
+exports[`calculates optimal sizes > calculates dimensions for tall rectangle { width: 10, height: 400, items: 20 } container 1`] = `
+{
+  "actualSize": 10,
+  "itemsPerRow": 1,
+  "numRows": 20,
+}
+`;
