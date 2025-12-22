@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { LikeButton } from './stories/LikeButton/LikeButton';
 import { OptimalLayout } from './stories/OptimalLayout/OptimalLayout';
 import { range } from 'lodash';
+import { motion } from 'motion/react';
 
 function App() {
   const [numItems, setNumItems] = useState(75);
@@ -84,7 +85,7 @@ function App() {
       >
         {range(numItems).map((item, index) => {
           return (
-            <div className="item" key={index}>
+            <motion.div layout className="item" key={index}>
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
                   d="M3.68546 5.43796C8.61936 1.29159 11.8685 7.4309 12.0406 7.4309C12.2126 7.43091 15.4617 1.29159 20.3956 5.43796C26.8941 10.8991 13.5 21.8215 12.0406 21.8215C10.5811 21.8215 -2.81297 10.8991 3.68546 5.43796Z"
@@ -113,7 +114,7 @@ function App() {
                   strokeLinecap="round"
                 />
               </svg> */}
-            </div>
+            </motion.div>
           );
         })}
       </OptimalLayout>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { random } from 'lodash';
 import PropTypes from 'prop-types';
 import { lightenColor } from '../../utils/colorUtils';

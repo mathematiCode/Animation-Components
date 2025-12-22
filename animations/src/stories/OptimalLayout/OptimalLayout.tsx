@@ -1,4 +1,5 @@
 import { calculateOptimalSize } from '../../utils/calculateOptimalSize';
+import { motion } from 'motion/react';
 
 export const OptimalLayout = ({
   width = 200,
@@ -26,7 +27,8 @@ export const OptimalLayout = ({
     );
   }
   return (
-    <div
+    <motion.div
+      layout
       className="container"
       style={{
         width: `${width}px `,
@@ -37,6 +39,6 @@ export const OptimalLayout = ({
       }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
