@@ -1,0 +1,11 @@
+svg {
+  overflow: visible;
+  margin-inline: 10px;
+  /* vector-effect: non-scaling-stroke; */
+  /* border: 2px solid white; */
+}
+
+path {
+  overflow: visible;
+  /* vector-effect: non-scaling-stroke; */
+}

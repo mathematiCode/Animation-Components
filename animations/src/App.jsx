@@ -4,6 +4,7 @@ import { LikeButton } from './stories/LikeButton/LikeButton';
 import { OptimalLayout } from './stories/OptimalLayout/OptimalLayout';
 import { range } from 'lodash';
 import { motion } from 'motion/react';
+import Parallelogram from './stories/Parallelogram/Parallelogram';
 
 function App() {
   const [numItems, setNumItems] = useState(75);
@@ -28,6 +29,17 @@ function App() {
   return (
     <>
       <h1>Calculate Optimal Size of Square Items </h1>
+      {/* <Parallelogram
+        width={60}
+        height={30}
+        strokeColor="white"
+        labelColor="white"
+        strokeWidth={2}
+        textSize={5}
+        unit="px"
+        svgWidth={300}
+        svgHeight={300}
+      /> */}
       <div className="inputs">
         <label htmlFor="num-items-input">
           Number of Items
