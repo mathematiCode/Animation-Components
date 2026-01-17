@@ -3,6 +3,7 @@ import Rectangle from './Rectangle';
 export default {
   title: 'Example/Rectangle',
   component: Rectangle,
+  tags: ['autodocs'],
   argTypes: {
     width: {
       control: { type: 'number' },

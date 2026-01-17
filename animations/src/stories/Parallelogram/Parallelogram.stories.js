@@ -3,6 +3,7 @@ import Parallelogram from './Parallelogram';
 export default {
   title: 'Example/Parallelogram',
   component: Parallelogram,
+  tags: ['autodocs'],
   argTypes: {
     width: {
       control: { type: 'number' },
