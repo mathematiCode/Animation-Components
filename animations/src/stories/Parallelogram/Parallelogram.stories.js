@@ -3,7 +3,7 @@ import Parallelogram from './Parallelogram';
 export default {
   title: 'Example/Parallelogram',
   component: Parallelogram,
-  args: {
+  argTypes: {
     width: {
       control: { type: 'number' },
     },
@@ -20,7 +20,7 @@ export default {
       control: { type: 'color' },
     },
     strokeWidth: {
-      control: { type: 5 },
+      control: { type: 'number' },
     },
   },
 };
