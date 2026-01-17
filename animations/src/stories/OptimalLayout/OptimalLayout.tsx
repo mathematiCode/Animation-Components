@@ -1,3 +1,4 @@
+import React from 'react';
 import { calculateOptimalSize } from '../../utils/calculateOptimalSize';
 import { motion } from 'motion/react';
 
@@ -30,13 +31,15 @@ export const OptimalLayout = ({
     <motion.div
       layout
       className="container"
-      style={{
-        width: `${width}px `,
-        height: `${height}px`,
-        gridTemplateColumns: `repeat(${itemsPerRow}, 1fr)`,
-        gridTemplateRows: `repeat(${numRows}, 1fr)`,
-        '--size': `${itemSize}px`,
-      }}
+      style={
+        {
+          width: `${width}px `,
+          height: `${height}px`,
+          gridTemplateColumns: `repeat(${itemsPerRow}, 1fr)`,
+          gridTemplateRows: `repeat(${numRows}, 1fr)`,
+          '--size': `${itemSize}px`,
+        } as React.CSSProperties
+      }
     >
       {children}
     </motion.div>

@@ -1,7 +1,7 @@
-import { Children } from 'react';
+import React, { Children } from 'react';
 import { OptimalLayout } from './OptimalLayout';
 import './optimalLayout.css';
-import { range } from 'lodash';
+import range from 'lodash/range';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
