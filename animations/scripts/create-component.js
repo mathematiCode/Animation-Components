@@ -40,6 +40,10 @@ const storiesTemplate = `import ${componentName} from './${componentName}';
 export default {
   title: 'Example/${componentName}',
   component: ${componentName},
+  tags: ['autodocs'],
+  argTypes: {
+    arg1:  control: { type: 'number' },
+  }
 };
 
 export const Default = {
