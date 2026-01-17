@@ -34,9 +34,6 @@ export default {
     height: {
       control: { type: 'number' },
     },
-    numItems: {
-      control: { type: 'number' },
-    },
     children: {
       control: { type: '' },
     },
@@ -48,7 +45,6 @@ export const Default = {
   args: {
     width: 600,
     height: 250,
-    numItems: 30,
     children: range(30).map((item, index) => (
       <div className="circle" key={index} />
     )),
@@ -59,7 +55,6 @@ export const SkinnyRect = {
   args: {
     width: 300,
     height: 50,
-    numItems: 10,
     children: range(10).map((item, index) => (
       <div className="circle" key={index} />
     )),
@@ -70,7 +65,6 @@ export const TallRect = {
   args: {
     width: 20,
     height: 400,
-    numItems: 20,
     children: range(20).map((item, index) => (
       <div className="circle" key={index} />
     )),
@@ -81,7 +75,6 @@ export const WeirdOne = {
   args: {
     width: 600,
     height: 100,
-    numItems: 32,
     children: range(32).map((item, index) => (
       <div className="circle" key={index} />
     )),
