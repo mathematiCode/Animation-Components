@@ -1,4 +1,4 @@
-function Trapezoid({ width1, width2, height, topLeft, bottomLeft }) {
+function Trapezoid({ width1, width2, height, topLeft = 0, bottomLeft = 0 }) {
   return (
     <svg
       width="100"

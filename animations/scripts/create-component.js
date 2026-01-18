@@ -42,7 +42,9 @@ export default {
   component: ${componentName},
   tags: ['autodocs'],
   argTypes: {
-    arg1:  control: { type: 'number' },
+    arg1:  {
+      control: { type: 'number' },
+    },
   }
 };
 
